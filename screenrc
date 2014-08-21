@@ -1,0 +1,43 @@
+# An alternative hardstatus to display a bar at the bottom listing the
+# windownames and highlighting the current windowname in blue. (This is only
+# enabled if there is no hardstatus setting for your terminal)
+hardstatus on
+
+# With this configuration active, the mouse scroll with scroll through the bash history instead of the terminal scrollback
+# Also it will scroll files in vim
+hardstatus alwayslastline
+
+#hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
+hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} "
+#hardstatus string ".%{BW}%16=%l %{BW}%50=%d/%m/%Y %{BW}%80=%c%=."
+
+#termcapinfo xterm*|rxvt*|vt100* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
+#hardstatus string "%c | %d.%m.%Y | %w"
+
+# Change the escape character to ^] to avoid emacs clashing (^a).
+# The 2nd char is how to pass the "real" char, so ^]^] sends ^] to the terminal
+#escape ^]^]
+#escape g
+escape ^Ww
+#escape ^Bb
+
+# Autodetach session on hangup instead of terminating screen completely
+autodetach on
+
+# Turn off the splash screen
+startup_message off
+
+# Use a 30000-line scrollback buffer
+defscrollback 30000
+
+#caption always .%{kB}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kB}%?%+Lw%?.
+#caption always "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
+
+
+# http://gentoo-wiki.com/TIP_Using_screen
+altscreen on
+shelltitle "$ |bash"
+
+# Use the terminal scrollback we've got
+termcapinfo xterm* ti@:te@
+#termcapinfo xterm ti@:te@
